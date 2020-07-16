@@ -2,7 +2,7 @@
 terraform {
   backend "s3" {
     bucket = "css-terraform-test"
-    key    = "tester"
+    key    = "tester.tfstate"
     region = "us-east-1"
   }
 }
