@@ -3,8 +3,8 @@ variable "instance_count" {
 }
 
 variable "key_name" {
-  description = "tester"
-  default     = "terraform"
+  description = "terraform key name"
+  default     = "tester"
 }
 
 variable "instance_type" {
