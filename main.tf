@@ -27,7 +27,7 @@ resource "aws_instance" "default" {
 }
 
 # Create Security Group for EC2
-resource "aws_security_group" "DevOps" {
+resource "aws_security_group" "DevOpsTest" {
   name = "DevOps"
 
   ingress {
