@@ -81,9 +81,6 @@ try {
 def getTerraformPath(){
       def tfHome = tool name: 'terraform-12', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'
       return tfHome
-    }
-  catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
-  currentBuild.result = 'ABORTED'
 }
 catch (err) {
   currentBuild.result = 'FAILURE'
