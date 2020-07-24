@@ -30,10 +30,7 @@ try {
       }
     }
   }
-    def getTerraformPath(){
-      def tfHome = tool name: 'terraform-12', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'
-      return tfHome
-    }
+    
   // Run terraform plan
   stage('plan') {
     node {
@@ -86,7 +83,11 @@ try {
   }
   currentBuild.result = 'SUCCESS'
 }
-catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
+def getTerraformPath(){
+      def tfHome = tool name: 'terraform-12', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'
+      return tfHome
+    }
+  catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
   currentBuild.result = 'ABORTED'
 }
 catch (err) {
