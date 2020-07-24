@@ -6,16 +6,11 @@ try {
     node {
       cleanWs()
       checkout scm
+      PATH = "${PATH}:${getTerraformPath()}"
     }
   }
 
   // Run terraform init
-  pipeline{
-    agent any
-    environment {
-      PATH = "${PATH}:${getTerraformPath()}"
-    }
-  
   stage('init') {
     node {
       withCredentials([[
