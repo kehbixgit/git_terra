@@ -10,6 +10,12 @@ try {
   }
 
   // Run terraform init
+  pipeline{
+    agent any
+    environment {
+      PATH = "${PATH}:${getTerraformPath()}"
+    }
+  
   stage('init') {
     node {
       withCredentials([[
@@ -24,7 +30,10 @@ try {
       }
     }
   }
-
+    def getTerraformPath(){
+      def tfHome = tool name: 'terraform-12', type: 'org.jenkinsci.plugins.terraform.TerraformInstallat:
+      return tfHome
+    }
   // Run terraform plan
   stage('plan') {
     node {
